@@ -78,14 +78,6 @@ $tasks = mysqli_fetch_all($res, MYSQLI_ASSOC);
       <?php endforeach; endif; ?>
     </section>
   </div>
-
-  <script>
-    function validateAdd(){
-      var t = document.getElementById('title').value.trim();
-      if(t === ''){ alert('Judul tidak boleh kosong'); return false; }
-      return true;
-    }
-  </script>
 <script src="assets/js/main.js" defer></script>
 
 </body>
