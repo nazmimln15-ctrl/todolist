@@ -1,7 +1,8 @@
 <?php
+// index.php
 require_once 'config.php';
 
-// Handle tambah task (POST)
+// Handle tambah task
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'add') {
     $title = trim($_POST['title'] ?? '');
     $desc  = trim($_POST['description'] ?? '');
@@ -25,7 +26,7 @@ $tasks = mysqli_fetch_all($res, MYSQLI_ASSOC);
   <meta charset="utf-8">
   <title>To Do List Sederhana</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <div class="container">
@@ -36,7 +37,7 @@ $tasks = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
     <section class="card">
       <h3>Tambah Task</h3>
-      <form method="post" action="index.php" onsubmit="return validateAdd()">
+      <form method="post" action="index.php">
         <input type="hidden" name="action" value="add">
         <input type="text" name="title" id="title" placeholder="Judul task" required>
         <textarea name="description" id="description" placeholder="Deskripsi (opsional)"></textarea>
@@ -49,13 +50,13 @@ $tasks = mysqli_fetch_all($res, MYSQLI_ASSOC);
       <?php if (empty($tasks)): ?>
         <p class="meta">Belum ada task.</p>
       <?php else: foreach ($tasks as $t): ?>
-        <div class="task" id="task-<?=htmlspecialchars($t['id'])?>">
+        <div class="task <?= $t['status']==='done' ? 'done' : '' ?>" id="task-<?=htmlspecialchars($t['id'])?>">
           <div style="flex:1">
-            <p class="title <?= $t['status']==='done'? 'done':'' ?>"><?=htmlspecialchars($t['title'])?></p>
+            <p class="title"><?=htmlspecialchars($t['title'])?></p>
             <?php if (trim($t['description'])!==''): ?>
-              <div class="meta"><?=nl2br(htmlspecialchars($t['description']))?></div>
+              <div class="meta-small"><?=nl2br(htmlspecialchars($t['description']))?></div>
             <?php endif; ?>
-            <div class="meta">Dibuat: <?=htmlspecialchars($t['created_at'])?> | Status: <?=htmlspecialchars($t['status'])?></div>
+            <div class="meta-small">Dibuat: <?=htmlspecialchars($t['created_at'])?> | Status: <?=htmlspecialchars($t['status'])?></div>
           </div>
 
           <div class="actions">
@@ -78,7 +79,7 @@ $tasks = mysqli_fetch_all($res, MYSQLI_ASSOC);
       <?php endforeach; endif; ?>
     </section>
   </div>
-<script src="assets/js/main.js" defer></script>
 
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
