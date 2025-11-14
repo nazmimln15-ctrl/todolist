@@ -103,14 +103,18 @@ button.danger{background:var(--danger);color:#fff;border:0}
 /* Edit page */
 .card.edit{max-width:700px;margin:0 auto}
 
-/* dinamic */
+/* Responsiveness */
 @media(max-width:720px){
   body{padding:18px}
   form{flex-direction:column}
   .actions{flex-wrap:wrap}
 }
 
-/* Smal utilities */
+/* Small utilities */
 .text-muted{color:var(--muted);font-size:13px}
 .center{text-align:center}
 .hidden{display:none}
+
+/* Field error styles for main.js */
+.field-error { color: #b91c1c; font-size:13px; margin-top:6px; }
+.input-invalid { border-color: #fca5a5 !important; box-shadow: 0 0 0 3px rgba(252,165,165,0.08); }
