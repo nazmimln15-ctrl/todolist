@@ -86,5 +86,7 @@ $tasks = mysqli_fetch_all($res, MYSQLI_ASSOC);
       return true;
     }
   </script>
+<script src="assets/js/main.js" defer></script>
+
 </body>
 </html>
