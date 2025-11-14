@@ -25,27 +25,7 @@ $tasks = mysqli_fetch_all($res, MYSQLI_ASSOC);
   <meta charset="utf-8">
   <title>To Do List Sederhana</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-    :root{--bg:#f4f7f9;--card:#fff;--accent:#2b8cff;--muted:#6b7280}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, Arial, sans-serif;background:var(--bg);margin:0;padding:24px}
-    .container{max-width:900px;margin:0 auto}
-    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-    h1{margin:0;font-size:20px}
-    .card{background:var(--card);padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-    form{display:flex;gap:8px;flex-wrap:wrap}
-    input[type="text"], textarea, select{flex:1;padding:8px;border:1px solid #e6e9ef;border-radius:6px}
-    textarea{min-height:60px;resize:vertical}
-    button{background:var(--accent);color:#fff;border:none;padding:9px 12px;border-radius:6px;cursor:pointer}
-    .list{margin-top:16px}
-    .task{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:12px;border-bottom:1px solid #f0f2f5}
-    .meta{color:var(--muted);font-size:12px}
-    .title{font-weight:600;margin:0 0 6px 0}
-    .actions a, .actions form{display:inline-block;margin-left:6px}
-    .actions a.button{background:#eef2ff;color:#1e3a8a;padding:6px 8px;border-radius:6px;text-decoration:none;border:1px solid #dbeafe}
-    .done{opacity:.6;text-decoration:line-through}
-    @media(max-width:600px){form{flex-direction:column}}
-  </style>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="container">
